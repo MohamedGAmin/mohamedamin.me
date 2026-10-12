@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Terminal "typing" animation: `animate-type` and `animate-blink` utilities */
+@theme {
+  --animate-type: type 4s steps(23) infinite;
+  --animate-blink: blink 1s step-end infinite;
+
+  @keyframes type {
+    0% { width: 0; }
+    45%, 90% { width: 23ch; }
+    100% { width: 0; }
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f1115;
+    --foreground: #f2f2f2;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
